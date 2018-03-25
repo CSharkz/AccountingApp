@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GestiuneModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Angajati">
+    <Key>
+      <PropertyRef Name="AngajatID" />
+    </Key>
+    <Property Name="Index" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AngajatID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Functie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Angajati_articole" Relationship="Self.FK__Angajati___Angaj__7D439ABD" FromRole="Angajati" ToRole="Angajati_articole" />
+    <NavigationProperty Name="Credentials" Relationship="Self.FK__Credentia__Angaj__05D8E0BE" FromRole="Angajati" ToRole="Credentials" />
+  </EntityType>
+  <EntityType Name="Angajati_articole">
+    <Key>
+      <PropertyRef Name="Index" />
+    </Key>
+    <Property Name="Index" Type="Int32" Nullable="false" />
+    <Property Name="AngajatID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ArticolID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Data_Primire" Type="DateTime" Precision="0" />
+    <Property Name="Cod_Primire" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Angajati" Relationship="Self.FK__Angajati___Angaj__7D439ABD" FromRole="Angajati_articole" ToRole="Angajati" />
+    <NavigationProperty Name="Articole" Relationship="Self.FK__Angajati___Artic__7E37BEF6" FromRole="Angajati_articole" ToRole="Articole" />
+  </EntityType>
+  <EntityType Name="Articole">
+    <Key>
+      <PropertyRef Name="Cod_Produs" />
+    </Key>
+    <Property Name="Index" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cod_Produs" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Denumire" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Data_In" Type="DateTime" Precision="0" />
+    <Property Name="Valabilitate" Type="Int32" />
+    <Property Name="U_M" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Cantitate" Type="Int32" />
+    <Property Name="Pret" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CUI_Furnizor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Angajati_articole" Relationship="Self.FK__Angajati___Artic__7E37BEF6" FromRole="Articole" ToRole="Angajati_articole" />
+    <NavigationProperty Name="Furnizori" Relationship="Self.FK__Articole__CUI_Fu__02FC7413" FromRole="Articole" ToRole="Furnizori" />
+  </EntityType>
+  <EntityType Name="Credentials">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AngajatID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Angajati" Relationship="Self.FK__Credentia__Angaj__05D8E0BE" FromRole="Credentials" ToRole="Angajati" />
+  </EntityType>
+  <EntityType Name="Furnizori">
+    <Key>
+      <PropertyRef Name="CUI" />
+    </Key>
+    <Property Name="Index" Type="Int32" Nullable="false" />
+    <Property Name="Denumire" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CUI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Localitate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Judet" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Articole" Relationship="Self.FK__Articole__CUI_Fu__02FC7413" FromRole="Furnizori" ToRole="Articole" />
+  </EntityType>
+  <Association Name="FK__Angajati___Angaj__7D439ABD">
+    <End Role="Angajati" Type="Self.Angajati" Multiplicity="1" />
+    <End Role="Angajati_articole" Type="Self.Angajati_articole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Angajati">
+        <PropertyRef Name="AngajatID" />
+      </Principal>
+      <Dependent Role="Angajati_articole">
+        <PropertyRef Name="AngajatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Credentia__Angaj__05D8E0BE">
+    <End Role="Angajati" Type="Self.Angajati" Multiplicity="1" />
+    <End Role="Credentials" Type="Self.Credentials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Angajati">
+        <PropertyRef Name="AngajatID" />
+      </Principal>
+      <Dependent Role="Credentials">
+        <PropertyRef Name="AngajatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Angajati___Artic__7E37BEF6">
+    <End Role="Articole" Type="Self.Articole" Multiplicity="1" />
+    <End Role="Angajati_articole" Type="Self.Angajati_articole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articole">
+        <PropertyRef Name="Cod_Produs" />
+      </Principal>
+      <Dependent Role="Angajati_articole">
+        <PropertyRef Name="ArticolID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Articole__CUI_Fu__02FC7413">
+    <End Role="Furnizori" Type="Self.Furnizori" Multiplicity="0..1" />
+    <End Role="Articole" Type="Self.Articole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Furnizori">
+        <PropertyRef Name="CUI" />
+      </Principal>
+      <Dependent Role="Articole">
+        <PropertyRef Name="CUI_Furnizor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GestiuneEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Angajati" EntityType="Self.Angajati" />
+    <EntitySet Name="Angajati_articole" EntityType="Self.Angajati_articole" />
+    <EntitySet Name="Articole" EntityType="Self.Articole" />
+    <EntitySet Name="Credentials" EntityType="Self.Credentials" />
+    <EntitySet Name="Furnizori" EntityType="Self.Furnizori" />
+    <AssociationSet Name="FK__Angajati___Angaj__7D439ABD" Association="Self.FK__Angajati___Angaj__7D439ABD">
+      <End Role="Angajati" EntitySet="Angajati" />
+      <End Role="Angajati_articole" EntitySet="Angajati_articole" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Credentia__Angaj__05D8E0BE" Association="Self.FK__Credentia__Angaj__05D8E0BE">
+      <End Role="Angajati" EntitySet="Angajati" />
+      <End Role="Credentials" EntitySet="Credentials" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Angajati___Artic__7E37BEF6" Association="Self.FK__Angajati___Artic__7E37BEF6">
+      <End Role="Articole" EntitySet="Articole" />
+      <End Role="Angajati_articole" EntitySet="Angajati_articole" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Articole__CUI_Fu__02FC7413" Association="Self.FK__Articole__CUI_Fu__02FC7413">
+      <End Role="Furnizori" EntitySet="Furnizori" />
+      <End Role="Articole" EntitySet="Articole" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

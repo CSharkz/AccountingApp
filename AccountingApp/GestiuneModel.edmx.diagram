@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b9462439e22742219bfdc2e8a3c3c595" Name="Diagram1">
+        <EntityTypeShape EntityType="GestiuneModel.Angajati" Width="1.5" PointX="7.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestiuneModel.Angajati_articole" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestiuneModel.Articole" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestiuneModel.Credentials" Width="1.5" PointX="10.125" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="GestiuneModel.Furnizori" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="GestiuneModel.FK__Angajati___Angaj__7D439ABD" ManuallyRouted="false" />
+        <AssociationConnector Association="GestiuneModel.FK__Credentia__Angaj__05D8E0BE" ManuallyRouted="false" />
+        <AssociationConnector Association="GestiuneModel.FK__Angajati___Artic__7E37BEF6" ManuallyRouted="false" />
+        <AssociationConnector Association="GestiuneModel.FK__Articole__CUI_Fu__02FC7413" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

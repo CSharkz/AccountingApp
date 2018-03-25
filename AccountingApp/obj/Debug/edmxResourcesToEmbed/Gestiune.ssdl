@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GestiuneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Angajati">
+    <Key>
+      <PropertyRef Name="AngajatID" />
+    </Key>
+    <Property Name="Index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AngajatID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nume" Type="nvarchar" MaxLength="50" />
+    <Property Name="Functie" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Angajati_articole">
+    <Key>
+      <PropertyRef Name="Index" />
+    </Key>
+    <Property Name="Index" Type="int" Nullable="false" />
+    <Property Name="AngajatID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ArticolID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Data Primire" Type="date" />
+    <Property Name="Cod Primire" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Articole">
+    <Key>
+      <PropertyRef Name="Cod Produs" />
+    </Key>
+    <Property Name="Index" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cod Produs" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Denumire" Type="nvarchar" MaxLength="50" />
+    <Property Name="Data In" Type="date" />
+    <Property Name="Valabilitate" Type="int" />
+    <Property Name="U/M" Type="nchar" MaxLength="10" />
+    <Property Name="Cantitate" Type="int" />
+    <Property Name="Pret" Type="money" />
+    <Property Name="CUI Furnizor" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Credentials">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AngajatID" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Furnizori">
+    <Key>
+      <PropertyRef Name="CUI" />
+    </Key>
+    <Property Name="Index" Type="int" Nullable="false" />
+    <Property Name="Denumire" Type="nvarchar" MaxLength="50" />
+    <Property Name="CUI" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Localitate" Type="nvarchar" MaxLength="50" />
+    <Property Name="Judet" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__Angajati___Angaj__7D439ABD">
+    <End Role="Angajati" Type="Self.Angajati" Multiplicity="1" />
+    <End Role="Angajati_articole" Type="Self.Angajati_articole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Angajati">
+        <PropertyRef Name="AngajatID" />
+      </Principal>
+      <Dependent Role="Angajati_articole">
+        <PropertyRef Name="AngajatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Angajati___Artic__7E37BEF6">
+    <End Role="Articole" Type="Self.Articole" Multiplicity="1" />
+    <End Role="Angajati_articole" Type="Self.Angajati_articole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articole">
+        <PropertyRef Name="Cod Produs" />
+      </Principal>
+      <Dependent Role="Angajati_articole">
+        <PropertyRef Name="ArticolID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Articole__CUI Fu__02FC7413">
+    <End Role="Furnizori" Type="Self.Furnizori" Multiplicity="0..1" />
+    <End Role="Articole" Type="Self.Articole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Furnizori">
+        <PropertyRef Name="CUI" />
+      </Principal>
+      <Dependent Role="Articole">
+        <PropertyRef Name="CUI Furnizor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Credentia__Angaj__05D8E0BE">
+    <End Role="Angajati" Type="Self.Angajati" Multiplicity="1" />
+    <End Role="Credentials" Type="Self.Credentials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Angajati">
+        <PropertyRef Name="AngajatID" />
+      </Principal>
+      <Dependent Role="Credentials">
+        <PropertyRef Name="AngajatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GestiuneModelStoreContainer">
+    <EntitySet Name="Angajati" EntityType="Self.Angajati" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Angajati_articole" EntityType="Self.Angajati_articole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Articole" EntityType="Self.Articole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Credentials" EntityType="Self.Credentials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Furnizori" EntityType="Self.Furnizori" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Angajati___Angaj__7D439ABD" Association="Self.FK__Angajati___Angaj__7D439ABD">
+      <End Role="Angajati" EntitySet="Angajati" />
+      <End Role="Angajati_articole" EntitySet="Angajati_articole" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Angajati___Artic__7E37BEF6" Association="Self.FK__Angajati___Artic__7E37BEF6">
+      <End Role="Articole" EntitySet="Articole" />
+      <End Role="Angajati_articole" EntitySet="Angajati_articole" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Articole__CUI Fu__02FC7413" Association="Self.FK__Articole__CUI Fu__02FC7413">
+      <End Role="Furnizori" EntitySet="Furnizori" />
+      <End Role="Articole" EntitySet="Articole" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Credentia__Angaj__05D8E0BE" Association="Self.FK__Credentia__Angaj__05D8E0BE">
+      <End Role="Angajati" EntitySet="Angajati" />
+      <End Role="Credentials" EntitySet="Credentials" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

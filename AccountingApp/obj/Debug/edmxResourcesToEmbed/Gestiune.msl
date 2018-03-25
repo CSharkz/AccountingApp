@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GestiuneModelStoreContainer" CdmEntityContainer="GestiuneEntities">
+    <EntitySetMapping Name="Angajati">
+      <EntityTypeMapping TypeName="GestiuneModel.Angajati">
+        <MappingFragment StoreEntitySet="Angajati">
+          <ScalarProperty Name="Index" ColumnName="Index" />
+          <ScalarProperty Name="AngajatID" ColumnName="AngajatID" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="Functie" ColumnName="Functie" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Angajati_articole">
+      <EntityTypeMapping TypeName="GestiuneModel.Angajati_articole">
+        <MappingFragment StoreEntitySet="Angajati_articole">
+          <ScalarProperty Name="Index" ColumnName="Index" />
+          <ScalarProperty Name="AngajatID" ColumnName="AngajatID" />
+          <ScalarProperty Name="ArticolID" ColumnName="ArticolID" />
+          <ScalarProperty Name="Data_Primire" ColumnName="Data Primire" />
+          <ScalarProperty Name="Cod_Primire" ColumnName="Cod Primire" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Articole">
+      <EntityTypeMapping TypeName="GestiuneModel.Articole">
+        <MappingFragment StoreEntitySet="Articole">
+          <ScalarProperty Name="Index" ColumnName="Index" />
+          <ScalarProperty Name="Cod_Produs" ColumnName="Cod Produs" />
+          <ScalarProperty Name="Denumire" ColumnName="Denumire" />
+          <ScalarProperty Name="Data_In" ColumnName="Data In" />
+          <ScalarProperty Name="Valabilitate" ColumnName="Valabilitate" />
+          <ScalarProperty Name="U_M" ColumnName="U/M" />
+          <ScalarProperty Name="Cantitate" ColumnName="Cantitate" />
+          <ScalarProperty Name="Pret" ColumnName="Pret" />
+          <ScalarProperty Name="CUI_Furnizor" ColumnName="CUI Furnizor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Credentials">
+      <EntityTypeMapping TypeName="GestiuneModel.Credentials">
+        <MappingFragment StoreEntitySet="Credentials">
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="AngajatID" ColumnName="AngajatID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Furnizori">
+      <EntityTypeMapping TypeName="GestiuneModel.Furnizori">
+        <MappingFragment StoreEntitySet="Furnizori">
+          <ScalarProperty Name="Index" ColumnName="Index" />
+          <ScalarProperty Name="Denumire" ColumnName="Denumire" />
+          <ScalarProperty Name="CUI" ColumnName="CUI" />
+          <ScalarProperty Name="Localitate" ColumnName="Localitate" />
+          <ScalarProperty Name="Judet" ColumnName="Judet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
