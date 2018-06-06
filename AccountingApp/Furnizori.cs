@@ -20,7 +20,7 @@ namespace AccountingApp
             this.Articole = new HashSet<Articole>();
         }
     
-        public int Index { get; set; }
+        public int FurnizorID { get; set; }
         public string Denumire { get; set; }
         public string CUI { get; set; }
         public string Localitate { get; set; }

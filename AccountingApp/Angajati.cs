@@ -21,10 +21,9 @@ namespace AccountingApp
             this.Credentials = new HashSet<Credentials>();
         }
     
-        public int Index { get; set; }
-        public string AngajatID { get; set; }
+        public int AngajatID { get; set; }
         public string Nume { get; set; }
-        public string Functie { get; set; }
+        public string Funtie { get; set; }
         public string Status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

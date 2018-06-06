@@ -19,57 +19,42 @@ namespace AccountingApp
             InitializeComponent();
         }
 
-        private void AccountingAppForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        /* Connection string to database */
-        //String connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Gestiune.mdf;Integrated Security=True;";
 
         private void OnClickLogin(object sender, EventArgs e)
         {
-            if(_txtUsername.Text == "" || _txtPassword.Text == "")
+            bool loginAttempt;
+            loginAttempt = Login.ValidateCredentials(txtUsername.Text, txtPassword.Text);
+            if (loginAttempt == true)
             {
-                MessageBox.Show("Please provide a Username and Password!", "Warning");
-                return;
+                this.Hide();
+                AdminAccountingAppForm adminAccAppForm = new AdminAccountingAppForm();
+                adminAccAppForm.Closed += (s, args) => this.Close();
+                adminAccAppForm.Show();
             }
-            try
-            {
-                /* Create a new sql connection */
-                //SqlConnection sqlConnection = new SqlConnection(connectionString);
-                //SqlCommand sqlCheckUserCommand = new SqlCommand("Select * from Credentials where Username = @username and Password = @password", sqlConnection);
-                //sqlCheckUserCommand.Parameters.AddWithValue("@username", _txtUsername.Text);
-                //sqlCheckUserCommand.Parameters.AddWithValue("@password", _txtPassword.Text);
-                //sqlConnection.Open();
+        }
 
-                var db = new GestiuneEntities();
-                var loginAttempt = db.Credentials.FirstOrDefault(u => u.Username == _txtUsername.Text && u.Password == _txtPassword.Text);
-                if(loginAttempt != null)
-                {
-                    this.Hide();
-                    AdminAccountingAppForm adminAccAppForm = new AdminAccountingAppForm();
-                    adminAccAppForm.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Login Failed!", "Failure");
-                }
+        private void OnClickRegister(object sender, EventArgs e)
+        {
+            RegisterAccountingAppForm registerAccAppForm = new RegisterAccountingAppForm();
+            registerAccAppForm.Show();
+        }
 
-            } catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
+        private void OnClickRecoverPassword(object sender, EventArgs e)
+        {
+            LostPassAccounting lostPassForm = new LostPassAccounting();
+            lostPassForm.Show();
+        }
+
+        private void btnLostPass_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RegisterAccountingAppForm registerAccountingAppForm = new RegisterAccountingAppForm();
+            registerAccountingAppForm.Show();
         }
     }
 }

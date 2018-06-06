@@ -20,15 +20,14 @@ namespace AccountingApp
             this.Angajati_articole = new HashSet<Angajati_articole>();
         }
     
-        public int Index { get; set; }
-        public string Cod_Produs { get; set; }
+        public int ArticolID { get; set; }
         public string Denumire { get; set; }
-        public Nullable<System.DateTime> Data_In { get; set; }
-        public Nullable<int> Valabilitate { get; set; }
-        public string U_M { get; set; }
-        public Nullable<int> Cantitate { get; set; }
-        public Nullable<decimal> Pret { get; set; }
-        public string CUI_Furnizor { get; set; }
+        public System.DateTime DataIntrare { get; set; }
+        public int Valabilitate { get; set; }
+        public string UM { get; set; }
+        public int Canitate { get; set; }
+        public decimal Pret { get; set; }
+        public int FurnizorID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Angajati_articole> Angajati_articole { get; set; }

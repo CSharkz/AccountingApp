@@ -14,11 +14,11 @@ namespace AccountingApp
     
     public partial class Angajati_articole
     {
-        public int Index { get; set; }
-        public string AngajatID { get; set; }
-        public string ArticolID { get; set; }
-        public Nullable<System.DateTime> Data_Primire { get; set; }
-        public string Cod_Primire { get; set; }
+        public int AngajatiArticoleID { get; set; }
+        public int AngajatID { get; set; }
+        public int ArticolID { get; set; }
+        public System.DateTime DataPrimire { get; set; }
+        public string CodPrimire { get; set; }
     
         public virtual Angajati Angajati { get; set; }
         public virtual Articole Articole { get; set; }
