@@ -14,9 +14,11 @@ namespace AccountingApp
     
     public partial class Credentials
     {
+        public int CredentialID { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public string AngajatID { get; set; }
+        public int AngajatID { get; set; }
+        public string Email { get; set; }
     
         public virtual Angajati Angajati { get; set; }
     }

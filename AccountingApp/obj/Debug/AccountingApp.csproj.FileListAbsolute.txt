@@ -18,3 +18,24 @@ D:\C# PROJECTS\AccountingApp\AccountingApp\bin\Debug\EntityFramework.SqlServer.d
 D:\C# PROJECTS\AccountingApp\AccountingApp\bin\Debug\EntityFramework.xml
 D:\C# PROJECTS\AccountingApp\AccountingApp\bin\Debug\EntityFramework.SqlServer.xml
 D:\C# PROJECTS\AccountingApp\AccountingApp\obj\Debug\AccountingApp.AdminAccountingAppForm.resources
+D:\Gitt\AccountingApp\AccountingApp\bin\Debug\AccountingApp.exe.config
+D:\Gitt\AccountingApp\AccountingApp\bin\Debug\AccountingApp.exe
+D:\Gitt\AccountingApp\AccountingApp\bin\Debug\AccountingApp.pdb
+D:\Gitt\AccountingApp\AccountingApp\bin\Debug\aa\AccountingApp.resources.dll
+D:\Gitt\AccountingApp\AccountingApp\bin\Debug\EntityFramework.dll
+D:\Gitt\AccountingApp\AccountingApp\bin\Debug\EntityFramework.SqlServer.dll
+D:\Gitt\AccountingApp\AccountingApp\bin\Debug\EntityFramework.xml
+D:\Gitt\AccountingApp\AccountingApp\bin\Debug\EntityFramework.SqlServer.xml
+D:\Gitt\AccountingApp\AccountingApp\obj\Debug\AccountingApp.csprojResolveAssemblyReference.cache
+D:\Gitt\AccountingApp\AccountingApp\obj\Debug\AccountingApp.AdminAccountingAppForm.resources
+D:\Gitt\AccountingApp\AccountingApp\obj\Debug\AccountingApp.LoginAccountingAppForm.resources
+D:\Gitt\AccountingApp\AccountingApp\obj\Debug\AccountingApp.Properties.Resources.resources
+D:\Gitt\AccountingApp\AccountingApp\obj\Debug\AccountingApp.LoginAccountingAppForm.aa.resources
+D:\Gitt\AccountingApp\AccountingApp\obj\Debug\AccountingApp.csproj.GenerateResource.Cache
+D:\Gitt\AccountingApp\AccountingApp\obj\Debug\AccountingApp.csproj.CoreCompileInputs.cache
+D:\Gitt\AccountingApp\AccountingApp\obj\Debug\aa\AccountingApp.resources.dll
+D:\Gitt\AccountingApp\AccountingApp\obj\Debug\AccountingApp.exe
+D:\Gitt\AccountingApp\AccountingApp\obj\Debug\AccountingApp.pdb
+D:\Gitt\AccountingApp\AccountingApp\obj\Debug\AccountingApp.LostPassAccounting.resources
+D:\Gitt\AccountingApp\AccountingApp\obj\Debug\AccountingApp.RegisterAccountingAppForm.resources
+D:\Gitt\AccountingApp\AccountingApp\obj\Debug\AccountingApp.Adauga_Angajat.resources

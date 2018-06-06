@@ -32,8 +32,8 @@
             this.lblMainTitle = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
-            this._txtUsername = new System.Windows.Forms.TextBox();
-            this._txtPassword = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnLostPass = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
@@ -49,24 +49,22 @@
             // 
             resources.ApplyResources(this.lblUsername, "lblUsername");
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblPassword
             // 
             resources.ApplyResources(this.lblPassword, "lblPassword");
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Click += new System.EventHandler(this.label1_Click_1);
             // 
-            // _txtUsername
+            // txtUsername
             // 
-            resources.ApplyResources(this._txtUsername, "_txtUsername");
-            this._txtUsername.Name = "_txtUsername";
+            resources.ApplyResources(this.txtUsername, "txtUsername");
+            this.txtUsername.Name = "txtUsername";
             // 
-            // _txtPassword
+            // txtPassword
             // 
-            resources.ApplyResources(this._txtPassword, "_txtPassword");
-            this._txtPassword.Name = "_txtPassword";
-            this._txtPassword.ShortcutsEnabled = false;
+            resources.ApplyResources(this.txtPassword, "txtPassword");
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.ShortcutsEnabled = false;
             // 
             // btnLogin
             // 
@@ -80,14 +78,16 @@
             resources.ApplyResources(this.btnLostPass, "btnLostPass");
             this.btnLostPass.Name = "btnLostPass";
             this.btnLostPass.UseVisualStyleBackColor = true;
+            this.btnLostPass.Click += new System.EventHandler(this.btnLostPass_Click);
             // 
             // btnRegister
             // 
             resources.ApplyResources(this.btnRegister, "btnRegister");
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
-            // AccountingAppForm
+            // LoginAccountingAppForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -95,14 +95,13 @@
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnLostPass);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this._txtPassword);
-            this.Controls.Add(this._txtUsername);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.lblMainTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "AccountingAppForm";
-            this.Load += new System.EventHandler(this.AccountingAppForm_Load);
+            this.Name = "LoginAccountingAppForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,8 +112,8 @@
         private System.Windows.Forms.Label lblMainTitle;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.TextBox _txtUsername;
-        private System.Windows.Forms.TextBox _txtPassword;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnLostPass;
         private System.Windows.Forms.Button btnRegister;

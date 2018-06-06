@@ -33,5 +33,16 @@ namespace AccountingApp.Properties {
                 return ((string)(this["GestiuneConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-7HETJDN\\SQLEXPRESS01;Initial Catalog=Gestiune3.0;Integrated S" +
+            "ecurity=True")]
+        public string Gestiune3_0ConnectionString {
+            get {
+                return ((string)(this["Gestiune3_0ConnectionString"]));
+            }
+        }
     }
 }
